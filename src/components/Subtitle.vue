@@ -18,7 +18,7 @@
       </div>
 
       <div class="container has-text-centered">
-        <h1 class="title"><b>แบ่งออกเป็น 2 แบบ</b></h1>
+        <h1 class="title"><b>แบ่งออกเป็น 2 แบบนะ</b></h1>
       </div>
 
 
