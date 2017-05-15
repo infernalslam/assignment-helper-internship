@@ -1,11 +1,15 @@
 <template>
   <div>
     <header-view />
+    <subtitle />
+    <type />
   </div>
 </template>
 
 <script>
 import HeaderView from './Header'
+import Subtitle from './Subtitle'
+import Type from './Type'
 export default {
   name: 'Index',
   data () {
@@ -13,7 +17,9 @@ export default {
     }
   },
   components: {
-    HeaderView
+    HeaderView,
+    Subtitle,
+    Type
   }
 }
 </script>
