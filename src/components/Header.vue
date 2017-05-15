@@ -8,15 +8,9 @@
           <div class="hero-body">
             <div class="container has-text-centered">
 
-              <div class="columns">
-                <div class="column"></div>
-                <div class="column center">
-                  <figure class="image is-128x128">
-                    <img src="https://www.aaltra.eu/assets/img/yerpa-apps/yerpa_timeclock.svg">
-                  </figure>
-                </div>
-                <div class="column"></div>
-              </div>
+
+                <img src="https://www.aaltra.eu/assets/img/yerpa-apps/yerpa_timeclock.svg" class="hero-logo" width="128px" height="128px">
+
 
 
               <h1 class="title">
@@ -27,6 +21,15 @@
               </h2>
             </div>
           </div>
+
+
+              <div class="columns">
+                  <div class="column"></div>
+                  <div class="column center">
+                     <i class="fa fa-chevron-down down" aria-hidden="true"></i>
+                  </div>
+                  <div class="column"></div>
+              </div>
 
 
         </div>
@@ -58,8 +61,62 @@ export default {
 }
 
 .center {
-  padding-left: 20%;
+  /*padding-left: 20%;*/
+  position: relative;
+  text-align: center;
 }
+
+
+
+.fa-chevron-down {
+    color: #fff;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
+}
+
+
+.down {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 0.5s infinite linear;
+  -o-animation: bounce 0.5s infinite linear;
+  -webkit-animation: bounce 0.5s infinite linear;
+  animation: bounce 0.5s infinite linear;
+  colr:000;
+}
+
+@-webkit-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-moz-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-o-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-ms-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+
 
 
 </style>
