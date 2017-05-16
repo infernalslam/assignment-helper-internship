@@ -17,7 +17,7 @@
                 <h1 class="title"> <b>ฝึกงาน</b>  </h1>
                 <b>ฝึกงาน 2 เดือน  1 มิ.ย. - 31 ก.ค. 25560</b>
                 <br>
-                <a class="button is-danger"><b>ลงทะเบียนนิเทศ</b></a>
+                <router-link to="/Internship2Mounth" class="button is-danger"><b>ลงทะเบียนนิเทศ</b></router-link>
               </div>
             </div>
 
@@ -34,7 +34,7 @@
                 <h1 class="title"><b>สหกิจศึกษา</b></h1>
                 <b>ฝึกงาน 6 เดือน  1 มิ.ย. - 31 พ.ย. 25560</b>
                 <br>
-                <a class="button is-danger"><b>ลงทะเบียนนิเทศ</b></a>
+                <router-link to="/Internship6Mounth" class="button is-danger"><b>ลงทะเบียนนิเทศ</b></router-link>
               </div>
             </div>
           </div>
