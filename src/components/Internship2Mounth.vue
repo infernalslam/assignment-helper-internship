@@ -20,8 +20,8 @@
 
 
                 <b>ที่ปรึกษา</b> <br>
-                <span class="select" v-model="profres">
-                  <select>
+                <span class="select">
+                  <select v-model="profres">
                     <option selected disabled value="">อย่าลืมเลือกนะ</option>
                     <option>อ. โอ๊ต (อาจารย์นิติการ นาคเจือทอง)</option>
                     <option>อ. ฝน (อาจารย์สุภาพร ลิ้มเจริญ)</option>
@@ -40,7 +40,11 @@
                 <p class="control"><input class="input" type="text" placeholder="เบอร์โทร" v-model="tel"></p>
                 <br>
 
-                <b> ชื่อบริษัทที่ไปฝึก...... ตึก อาคาร ชั้น ....</b>
+                <b>ชื่อบริษัทที่ไปฝึก</b>
+                <p class="control"><input class="input" type="text" placeholder="ชื่อบริษัท" v-model="companyName"></p>
+                <br>
+
+                <b> ที่อยู่ ตึก อาคาร ชั้น ....</b>
                 <p class="control"><textarea class="textarea" placeholder="รายละเอียด" v-model="company"></textarea></p>
                 <br>
 
@@ -65,7 +69,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Internship2Mounth',
   data () {
@@ -74,7 +78,8 @@ export default {
       tel: '',
       company: '',
       googleMap: '',
-      profres: ''
+      profres: '',
+      companyName: ''
     }
   },
   methods: {
@@ -85,13 +90,18 @@ export default {
         name: this.name,
         tel: this.tel,
         company: this.company,
+        companyName: this.companyName,
         type: 'ฝึกงาน',
         location: this.googleMap,
         profres: this.profres,
         active: 'ยังไม่มีกำหนด'
       }
       console.log(data)
-    }
+      this.$store.dispatch('uploadUserBase', data)
+    },
+    ...mapActions([
+      'uploadUserBase'
+    ])
   },
   computed: {
     ...mapGetters([

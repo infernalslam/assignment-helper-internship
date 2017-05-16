@@ -12,18 +12,24 @@
         <table class="table">
           <thead>
             <tr>
-              <th><b>กิจกรรม</b></th>
-              <th><b>วันที่</b></th>
+              <th><b>ลำดับ</b></th>
+              <th><b>ชื่อ นามสกุล</b></th>
+              <th><b>ชื่อบริษัท</b></th>
+              <th><b>สถานะ</b></th>
+              <th><b>วันนิเทศ</b></th>
             </tr>
           </thead>
-          <tr>
-            <td>นางสาวขวัญกมล นาคบังลังค์</td>
-            <td>จันทร์ 31 ก.ค 2560</td>
+          <tr v-for="(user, index) in allUser">
+            <td>{{index + 1}}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.companyName }}</td>
+            <td>{{ user.type }}</td>
+            <td>{{ user.active }}</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>นายกมลภพ เเพงวังทอง</td>
             <td>จันทร์ 31 ก.ค 2560</td>
-          </tr>
+          </tr> -->
         </table>
 
       </div>
@@ -41,8 +47,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'Calendar'
+  name: 'Calendar',
+  computed: {
+    ...mapGetters([
+      'allUser'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'getUser'
+    ])
+  },
+  mounted () {
+    this.$store.dispatch('getUser')
+  }
 }
 </script>
 

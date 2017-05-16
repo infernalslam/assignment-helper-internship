@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router/index'
 Vue.use(Vuex)
-// import axios from 'axios'
+import axios from 'axios'
 import firebase from 'firebase'
 const config = {
   apiKey: 'AIzaSyDaSOYV7SJsA9UHtTHMD3QliOIv4rh1TEU',
@@ -27,12 +27,14 @@ const store = new Vuex.Store({
   state: {
     displayName: '',
     photoURL: '',
-    uid: ''
+    uid: '',
+    allUser: []
   },
   getters: {
     displayName: state => { return state.displayName },
     photoURL: state => { return state.photoURL },
-    uid: state => { return state.uid }
+    uid: state => { return state.uid },
+    allUser: state => { return state.allUser }
   },
   actions: {
     logingFacebook (context) {
@@ -46,6 +48,9 @@ const store = new Vuex.Store({
     },
     uploadUserBase (context, payload) {
       context.commit('uploadUserBase', payload)
+    },
+    getUser (context) {
+      context.commit('getUser')
     }
   },
   mutations: {
@@ -123,6 +128,22 @@ const store = new Vuex.Store({
     },
     uploadUserBase (state, payload) {
       user.push(payload)
+      swal('ส่งข้อมูลหา ' + payload.profres + 'เเล้วนะ', 'ติดตามตารางนิเทศได้ในหน้าเเรกเลยนะจ๊ะ', 'success').then(function () {
+        router.push({ path: '/' })
+      })
+    },
+    getUser (state) {
+      axios.get('https://fitm-messenger-e96c4.firebaseio.com/user.json').then(res => {
+        let setData = []
+        for (var index in res.data) {
+          if (res.data.hasOwnProperty(index)) {
+            setData.push({
+              ...res.data[index]
+            })
+          }
+        }
+        state.allUser = setData
+      })
     }
   }
 })
