@@ -191,7 +191,7 @@ const store = new Vuex.Store({
         state.displayName = ''
         state.photoURL = ''
         state.uid = ''
-        state.adminState = true
+        state.adminState = false
       }, (err) => {
         if (err) {}
       })
