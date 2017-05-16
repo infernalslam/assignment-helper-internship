@@ -17,6 +17,7 @@
               <th><b>ชื่อบริษัท</b></th>
               <th><b>สถานะ</b></th>
               <th><b>วันนิเทศ</b></th>
+              <th v-if="adminState === true"><b>แก้วันนิเทศ</b></th>
             </tr>
           </thead>
           <tr v-for="(user, index) in allUser">
@@ -24,22 +25,20 @@
             <td>{{ user.name }}</td>
             <td>{{ user.companyName }}</td>
             <td>{{ user.type }}</td>
-            <td>{{ user.active }}</td>
+            <td v-if="adminState === false">{{ user.active }}</td>
+            <td v-if="adminState === true">{{ user.active }}</td>
+            <td v-if="adminState === true">
+               <input type="date" v-model="date" v-show="user.id === id">
+               <button @click="select(user.id)" v-show="user.id !== id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+               <button v-show="user.id === id" @click="updateDateIn(user, date)"><i class="fa fa-reply-all" aria-hidden="true"></i></button>
+               <!-- <button @click="id = user.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> -->
+            </td>
+
           </tr>
-          <!-- <tr>
-            <td>นายกมลภพ เเพงวังทอง</td>
-            <td>จันทร์ 31 ก.ค 2560</td>
-          </tr> -->
         </table>
 
       </div>
     </div>
-
-    <!-- <div class="container has-text-centered">
-      <h1 class="title"><b>แบ่งออกเป็น 2 แบบนะ</b></h1>
-    </div> -->
-
-
 
 </section>
 
@@ -47,18 +46,41 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Calendar',
+  data () {
+    return {
+      date: [],
+      value: '',
+      id: ''
+    }
+  },
   computed: {
     ...mapGetters([
-      'allUser'
+      'allUser',
+      'adminState'
     ])
   },
   methods: {
     ...mapActions([
-      'getUser'
-    ])
+      'getUser',
+      'updateDate'
+    ]),
+    select (userId) {
+      this.id = userId
+    },
+    updateDateIn (user, date) {
+      let march = moment(date)
+      march.locale('th')
+      user.active = march.format('LL')
+      let payload = {
+        ...user
+      }
+      this.$store.dispatch('updateDate', payload)
+      this.date = ''
+    }
   },
   mounted () {
     this.$store.dispatch('getUser')

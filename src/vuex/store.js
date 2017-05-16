@@ -29,13 +29,14 @@ const store = new Vuex.Store({
     photoURL: '',
     uid: '',
     allUser: [],
-    adminState: true
+    adminState: false
   },
   getters: {
     displayName: state => { return state.displayName },
     photoURL: state => { return state.photoURL },
     uid: state => { return state.uid },
-    allUser: state => { return state.allUser }
+    allUser: state => { return state.allUser },
+    adminState: state => { return state.adminState }
   },
   actions: {
     logingFacebook (context) {
@@ -52,6 +53,9 @@ const store = new Vuex.Store({
     },
     getUser (context) {
       context.commit('getUser')
+    },
+    updateDate (context, payload) {
+      context.commit('updateDate', payload)
     }
   },
   mutations: {
@@ -69,13 +73,12 @@ const store = new Vuex.Store({
               })
             }
           }
-          console.log(setData)
           var check = setData.findIndex(i => i.uid === user.uid)
-          console.log(check)
           if (check >= 0) {
             state.displayName = user.displayName
             state.photoURL = user.photoURL
             state.uid = user.uid
+            state.adminState = true
             swal({
               title: 'เข้าใช้งานเรียบร้อย!',
               text: 'สามารถแก้ไขเว็บได้ค่ะ',
@@ -166,11 +169,18 @@ const store = new Vuex.Store({
         for (var index in res.data) {
           if (res.data.hasOwnProperty(index)) {
             setData.push({
-              ...res.data[index]
+              ...res.data[index],
+              firebaseId: index
             })
           }
         }
         state.allUser = setData
+      })
+    },
+    updateDate (state, payload) {
+      console.log('updateDate ', payload)
+      firebase.database().ref('user/' + payload.firebaseId).update({
+        ...payload
       })
     }
   }
