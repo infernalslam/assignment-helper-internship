@@ -12,10 +12,10 @@
           <div class="column">
 
             <div class="card">
-              <img src="http://www.theinternship.io/_nuxt/img/designer.5ee021f.jpg">
+              <img src="http://www.theinternship.io/_nuxt/img/biz.2d8f767.jpg">
               <div class="card-detail">
                 <h1 class="title" style="color: #000;"> <b>ฝึกงาน</b>  </h1>
-                <b>ฝึกงาน 2 เดือน  1 มิ.ย. - 31 ก.ค. 25560</b>
+                <b>เริ่ม 2 เดือน  1 มิ.ย. - 31 ก.ค. 2560</b>
                 <br>
                 <button  class="button is-danger" @click="Internship2Mounth()"><b>ลงทะเบียนนิเทศ</b></button>
               </div>
@@ -31,8 +31,8 @@
             <div class="card">
               <img src="http://www.theinternship.io/_nuxt/img/dev.be1249b.jpg">
               <div class="card-detail">
-                <h1 class="title" style="color: #000;"><b>สหกิจศึกษา</b></h1>
-                <b>ฝึกงาน 6 เดือน  1 มิ.ย. - 31 พ.ย. 25560</b>
+                <h1 class="title" style="color: #000;"><b>สหกิจ</b></h1>
+                <b>เริ่ม 6 เดือน  1 มิ.ย. - 31 พ.ย. 2560</b>
                 <br>
                 <button  class="button is-danger" @click="Internship6Mounth()"><b>ลงทะเบียนนิเทศ</b></button>
               </div>

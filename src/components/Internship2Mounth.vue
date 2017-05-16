@@ -13,7 +13,7 @@
           <div class="column"></div>
           <div class="column">
             <div class="card">
-              <img src="http://www.theinternship.io/_nuxt/img/designer.5ee021f.jpg">
+              <img src="http://www.theinternship.io/_nuxt/img/biz.2d8f767.jpg">
               <router-link to="/" class="button is-danger" style="float: right;"><b>กลับไปหน้าหลัก</b></router-link>
               <div class="card-detail">
                 <h1 class="title"> <b>ฝึกงาน</b>  </h1>
