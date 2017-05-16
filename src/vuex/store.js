@@ -56,6 +56,9 @@ const store = new Vuex.Store({
     },
     updateDate (context, payload) {
       context.commit('updateDate', payload)
+    },
+    logOut (context) {
+      context.commit('logOut')
     }
   },
   mutations: {
@@ -181,6 +184,16 @@ const store = new Vuex.Store({
       console.log('updateDate ', payload)
       firebase.database().ref('user/' + payload.firebaseId).update({
         ...payload
+      })
+    },
+    logOut (state) {
+      firebase.auth().signOut().then(() => {
+        state.displayName = ''
+        state.photoURL = ''
+        state.uid = ''
+        state.adminState = true
+      }, (err) => {
+        if (err) {}
       })
     }
   }

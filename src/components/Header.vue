@@ -9,7 +9,11 @@
         <div class="column is-5"></div>
         <div class="column is-5"></div>
         <div class="column is-2">
-          <a class="button is-danger is-focused" style="color: #fff;" @click="logingFacebook()"> <b>หน้า Sign in ของอาจารย์ค่ะ</b></a>
+          <a class="button is-danger is-focused" v-if="adminState === false" style="color: #fff;" @click="logingFacebook()"> <b>หน้า Sign in ของอาจารย์ค่ะ</b></a>
+          <div class="box is-danger is-focused" v-if="adminState === true" style="color: #000; cursor: pointer;" @click="logOut()">
+            <b>logOut | {{ displayName }}</b> <br>
+            <img :src="photoURL" width="50px" height="50%">
+          </div>
         </div>
       </div>
 
@@ -37,16 +41,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Header',
   methods: {
     ...mapActions([
-      'logingFacebook'
+      'logingFacebook',
+      'logOut'
     ]),
     logingFacebook () {
       this.$store.dispatch('logingFacebook')
     }
+  },
+  computed: {
+    ...mapGetters(['adminState', 'displayName', 'photoURL'])
   }
 }
 </script>

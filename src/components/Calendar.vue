@@ -18,6 +18,7 @@
               <th><b>สถานะ</b></th>
               <th><b>วันนิเทศ</b></th>
               <th v-if="adminState === true"><b>แก้วันนิเทศ</b></th>
+              <th v-if="adminState === true"><b>ดูรายละเอียด</b></th>
             </tr>
           </thead>
           <tr v-for="(user, index) in allUser">
@@ -29,9 +30,12 @@
             <td v-if="adminState === true">{{ user.active }}</td>
             <td v-if="adminState === true">
                <input type="date" v-model="date" v-show="user.id === id">
-               <button @click="select(user.id)" v-show="user.id !== id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-               <button v-show="user.id === id" @click="updateDateIn(user, date)"><i class="fa fa-reply-all" aria-hidden="true"></i></button>
+               <button @click="select(user.id)" v-show="user.id !== id" class="button is-primary is-outlined"><b>เลือก</b></button>
+               <button v-show="user.id === id" class="button is-danger is-outlined"  @click="updateDateIn(user, date)"><b>อัปเดต</b></button>
                <!-- <button @click="id = user.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> -->
+            </td>
+            <td v-if="adminState === true">
+              <button class="button is-danger is-outlined"><b>ดู</b></button>
             </td>
 
           </tr>
@@ -80,6 +84,7 @@ export default {
       }
       this.$store.dispatch('updateDate', payload)
       this.date = ''
+      this.id = ''
     }
   },
   mounted () {
