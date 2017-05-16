@@ -96,7 +96,6 @@ export default {
         profres: this.profres,
         active: 'ยังไม่มีกำหนด'
       }
-      console.log(data)
       this.$store.dispatch('uploadUserBase', data)
     },
     ...mapActions([

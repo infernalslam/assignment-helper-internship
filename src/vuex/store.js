@@ -15,7 +15,7 @@ const config = {
 }
 firebase.initializeApp(config)
 const user = firebase.database().ref('user')
-// const playlists = firebase.database().ref('playlists')
+// const admin = firebase.database().ref('admin')
 
 const provider = new firebase.auth.FacebookAuthProvider()
 provider.addScope('public_profile')
@@ -28,7 +28,8 @@ const store = new Vuex.Store({
     displayName: '',
     photoURL: '',
     uid: '',
-    allUser: []
+    allUser: [],
+    adminState: true
   },
   getters: {
     displayName: state => { return state.displayName },
@@ -57,9 +58,36 @@ const store = new Vuex.Store({
     logingFacebook (state) {
       firebase.auth().signInWithPopup(provider).then((result) => {
         let user = result.user
-        state.displayName = user.displayName
-        state.photoURL = user.photoURL
-        state.uid = user.uid
+        return user
+      }).then((user) => {
+        axios.get('https://fitm-messenger-e96c4.firebaseio.com/admin.json').then(res => {
+          let setData = []
+          for (var index in res.data) {
+            if (res.data.hasOwnProperty(index)) {
+              setData.push({
+                ...res.data[index]
+              })
+            }
+          }
+          console.log(setData)
+          var check = setData.findIndex(i => i.uid === user.uid)
+          console.log(check)
+          if (check >= 0) {
+            state.displayName = user.displayName
+            state.photoURL = user.photoURL
+            state.uid = user.uid
+            swal({
+              title: 'เข้าใช้งานเรียบร้อย!',
+              text: 'สามารถแก้ไขเว็บได้ค่ะ',
+              imageUrl: state.photoURL,
+              imageWidth: 50,
+              imageHeight: 50,
+              animation: true
+            })
+          } else if (check === -1) {
+            swal('การเข้าใช้งานไม่สมบรูณ์', 'โปรดลองใหม่นะ', 'error')
+          }
+        })
       }).catch((error) => {
         if (error) {
           console.log('login failures')

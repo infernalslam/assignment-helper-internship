@@ -45,7 +45,6 @@ export default {
       'logingFacebook'
     ]),
     logingFacebook () {
-      console.log('logingFacebook')
       this.$store.dispatch('logingFacebook')
     }
   }
