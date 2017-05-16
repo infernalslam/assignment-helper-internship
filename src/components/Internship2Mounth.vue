@@ -18,24 +18,38 @@
               <div class="card-detail">
                 <h1 class="title"> <b>ฝึกงาน</b>  </h1>
 
+
+                <b>ที่ปรึกษา</b> <br>
+                <span class="select" v-model="profres">
+                  <select>
+                    <option selected disabled value="">อย่าลืมเลือกนะ</option>
+                    <option>อ. โอ๊ต (อาจารย์นิติการ นาคเจือทอง)</option>
+                    <option>อ. ฝน (อาจารย์สุภาพร ลิ้มเจริญ)</option>
+                    <option>อ. อ้อ (อาจารย์ขณิตฐา นามี)</option>
+                  </select>
+                </span>
+
+                <br>
+                <hr>
+
                 <b>ชื่อ นามสกุล</b>
-                <p class="control"><input class="input" type="text" placeholder="ชื่อนามสกุล"></p>
+                <p class="control"><input class="input" type="text" placeholder="ชื่อนามสกุล" v-model="name"></p>
                 <br>
 
                 <b>เบอร์โทร</b>
-                <p class="control"><input class="input" type="text" placeholder="เบอร์โทร"></p>
+                <p class="control"><input class="input" type="text" placeholder="เบอร์โทร" v-model="tel"></p>
                 <br>
 
                 <b> ชื่อบริษัทที่ไปฝึก...... ตึก อาคาร ชั้น ....</b>
-                <p class="control"><textarea class="textarea" placeholder="รายละเอียด"></textarea></p>
+                <p class="control"><textarea class="textarea" placeholder="รายละเอียด" v-model="company"></textarea></p>
                 <br>
 
                 <b> link ใน google map ที่คุณปักหมุดเอาไว้ </b>
                 <a href="https://www.google.co.th/maps/" target="_blank" style="color:#ff3860;"> <u><b>link google map</b></u></a>
-                <p class="control"><input class="input" type="text" placeholder="ink ใน google map"></p></p>
+                <p class="control"><input class="input" type="text" placeholder="ink ใน google map" v-model="googleMap"></p></p>
                 <br>
 
-                <router-link to="/" class="button is-success"><b>ยืนยันจ๊ะ</b></router-link>
+                <button class="button is-success" @click="add()"><b>ยืนยันจ๊ะ</b></button>
               </div>
             </div>
           </div>
@@ -51,8 +65,41 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'Internship2Mounth'
+  name: 'Internship2Mounth',
+  data () {
+    return {
+      name: '',
+      tel: '',
+      company: '',
+      googleMap: '',
+      profres: ''
+    }
+  },
+  methods: {
+    add () {
+      let data = {
+        id: this.uid,
+        facebook: this.displayName,
+        name: this.name,
+        tel: this.tel,
+        company: this.company,
+        type: 'ฝึกงาน',
+        location: this.googleMap,
+        profres: this.profres,
+        active: 'ยังไม่มีกำหนด'
+      }
+      console.log(data)
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'displayName',
+      'photoURL',
+      'uid'
+    ])
+  }
 }
 </script>
 

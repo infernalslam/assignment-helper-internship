@@ -9,7 +9,7 @@
         <div class="column is-5"></div>
         <div class="column is-5"></div>
         <div class="column is-2">
-          <a class="button is-danger is-focused" style="color: #fff;"> <b>หน้า Sign in ของอาจารย์ค่ะ</b></a>
+          <a class="button is-danger is-focused" style="color: #fff;" @click="logingFacebook()"> <b>หน้า Sign in ของอาจารย์ค่ะ</b></a>
         </div>
       </div>
 
@@ -37,8 +37,18 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  name: 'Header'
+  name: 'Header',
+  methods: {
+    ...mapActions([
+      'logingFacebook'
+    ]),
+    logingFacebook () {
+      console.log('logingFacebook')
+      this.$store.dispatch('logingFacebook')
+    }
+  }
 }
 </script>
 

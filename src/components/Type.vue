@@ -17,7 +17,7 @@
                 <h1 class="title" style="color: #000;"> <b>ฝึกงาน</b>  </h1>
                 <b>ฝึกงาน 2 เดือน  1 มิ.ย. - 31 ก.ค. 25560</b>
                 <br>
-                <router-link to="/Internship2Mounth" class="button is-danger"><b>ลงทะเบียนนิเทศ</b></router-link>
+                <button  class="button is-danger" @click="Internship2Mounth()"><b>ลงทะเบียนนิเทศ</b></button>
               </div>
             </div>
 
@@ -34,7 +34,7 @@
                 <h1 class="title" style="color: #000;"><b>สหกิจศึกษา</b></h1>
                 <b>ฝึกงาน 6 เดือน  1 มิ.ย. - 31 พ.ย. 25560</b>
                 <br>
-                <router-link to="/Internship6Mounth" class="button is-danger"><b>ลงทะเบียนนิเทศ</b></router-link>
+                <button  class="button is-danger" @click="Internship6Mounth()"><b>ลงทะเบียนนิเทศ</b></button>
               </div>
             </div>
           </div>
@@ -54,8 +54,15 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  name: 'Type'
+  name: 'Type',
+  methods: {
+    ...mapActions([
+      'Internship2Mounth',
+      'Internship6Mounth'
+    ])
+  }
 }
 </script>
 
