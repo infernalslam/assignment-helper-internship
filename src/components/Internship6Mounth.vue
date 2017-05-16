@@ -16,7 +16,7 @@
               <img src="http://www.theinternship.io/_nuxt/img/dev.be1249b.jpg">
               <router-link to="/" class="button is-danger" style="float: right;"><b>กลับไปหน้าหลัก</b></router-link>
               <div class="card-detail">
-                <h1 class="title"> <b>ฝึกงาน</b>  </h1>
+                <h1 class="title"> <b>สหกิจศึกษา</b>  </h1>
 
                 <b>ชื่อ นามสกุล</b>
                 <p class="control"><input class="input" type="text" placeholder="ชื่อนามสกุล"></p>
@@ -35,7 +35,7 @@
                 <p class="control"><input class="input" type="text" placeholder="ink ใน google map"></p></p>
                 <br>
 
-                <router-link to="/" class="button is-danger"><b>ยืนยันจ๊ะ</b></router-link>
+                <router-link to="/" class="button is-success"><b>ยืนยันจ๊ะ</b></router-link>
               </div>
             </div>
           </div>

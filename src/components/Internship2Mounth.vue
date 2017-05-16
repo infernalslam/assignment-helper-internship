@@ -35,7 +35,7 @@
                 <p class="control"><input class="input" type="text" placeholder="ink ใน google map"></p></p>
                 <br>
 
-                <router-link to="/" class="button is-danger"><b>ยืนยันจ๊ะ</b></router-link>
+                <router-link to="/" class="button is-success"><b>ยืนยันจ๊ะ</b></router-link>
               </div>
             </div>
           </div>
