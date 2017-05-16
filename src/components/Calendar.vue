@@ -21,7 +21,7 @@
             </tr>
           </thead>
           <tr v-for="(user, index) in allUser">
-            <td>{{index + 1}}</td>
+            <td>{{index + 1}} <img :src="user.photoURL" width="50px" height="50px"></td>
             <td>{{ user.name }}</td>
             <td>{{ user.companyName }}</td>
             <td>{{ user.type }}</td>

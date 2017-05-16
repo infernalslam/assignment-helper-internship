@@ -94,7 +94,8 @@ export default {
         type: 'ฝึกงาน',
         location: this.googleMap,
         profres: this.profres,
-        active: 'ยังไม่มีกำหนด'
+        active: 'ยังไม่มีกำหนด',
+        photoURL: this.photoURL
       }
       this.$store.dispatch('uploadUserBase', data)
     },
