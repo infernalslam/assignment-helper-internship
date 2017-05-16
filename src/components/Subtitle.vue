@@ -4,9 +4,7 @@
       <div class="container has-text-centered">
         <h1 class="title"><b>ประกาศจากอาจารย์ Network</b></h1>
       </div>
-
       <br>
-
       <div class="columns">
         <div class="column is-10 is-offset-1">
           <p>

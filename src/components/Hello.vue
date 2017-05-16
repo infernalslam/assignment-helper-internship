@@ -3,6 +3,8 @@
     <header-view />
     <subtitle />
     <type />
+    <calendar />
+    <question />
   </div>
 </template>
 
@@ -10,6 +12,8 @@
 import HeaderView from './Header'
 import Subtitle from './Subtitle'
 import Type from './Type'
+import Question from './QandA'
+import Calendar from './Calendar'
 export default {
   name: 'Index',
   data () {
@@ -19,7 +23,9 @@ export default {
   components: {
     HeaderView,
     Subtitle,
-    Type
+    Type,
+    Question,
+    Calendar
   }
 }
 </script>

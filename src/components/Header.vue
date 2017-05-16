@@ -7,30 +7,15 @@
 
           <div class="hero-body">
             <div class="container has-text-centered">
-
-
                 <img src="https://www.aaltra.eu/assets/img/yerpa-apps/yerpa_timeclock.svg" class="hero-logo" width="128px" height="128px">
-
-
-
-              <h1 class="title">
-                อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษา
-              </h1>
-              <h2 class="subtitle">
-                อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษาที่ไปฝึกงานทุกคนทั้ง "สหกิจ" และ "ฝึกงานทั่วไป"
-              </h2>
+                <h1 class="title"><b>อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษา</b></h1>
+                <h2 class="subtitle"><b>อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษาที่ไปฝึกงานทุกคนทั้ง "สหกิจ" และ "ฝึกงานทั่วไป"</b></h2>
+                <h2 class="subtitle">(เฉพาะเซคซี เท่านั้น)</h2>
+                <br><br>
+                <i class="fa fa-chevron-down down hero-logo" aria-hidden="true"></i>
+              <br>
             </div>
           </div>
-
-
-              <div class="columns">
-                  <div class="column"></div>
-                  <div class="column center">
-                     <i class="fa fa-chevron-down down" aria-hidden="true"></i>
-                  </div>
-                  <div class="column"></div>
-              </div>
-
 
         </div>
       </div>
