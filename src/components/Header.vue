@@ -11,7 +11,7 @@
         <div class="column is-2">
           <a class="button is-danger is-focused" v-if="adminState === false" style="color: #fff;" @click="logingFacebook()"> <b>หน้า Sign in ของอาจารย์ค่ะ</b></a>
           <div class="box is-danger is-focused" v-if="adminState === true" style="color: #000; cursor: pointer;" @click="logOut()">
-            <b>logOut | {{ displayName }}</b> <br>
+            <b>logOut | {{ displayName }} กดเพื่อออก</b> <br>
             <img :src="photoURL" width="50px" height="50%">
           </div>
         </div>

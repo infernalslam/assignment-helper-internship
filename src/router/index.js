@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Internship2Mounth from '@/components/Internship2Mounth'
 import Internship6Mounth from '@/components/Internship6Mounth'
+import showSingle from '@/components/showSingle'
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/Internship6Mounth',
       name: 'Internship6Mounth',
       component: Internship6Mounth
+    },
+    {
+      path: '/showSingle',
+      name: 'showSingle',
+      component: showSingle
     }
   ]
 })

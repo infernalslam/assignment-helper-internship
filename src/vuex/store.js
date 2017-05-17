@@ -29,7 +29,8 @@ const store = new Vuex.Store({
     photoURL: '',
     uid: '',
     allUser: [],
-    adminState: false
+    adminState: false,
+    singleUser: {}
   },
   getters: {
     displayName: state => { return state.displayName },
@@ -59,6 +60,9 @@ const store = new Vuex.Store({
     },
     logOut (context) {
       context.commit('logOut')
+    },
+    showSingle (context, payload) {
+      context.commit('showSingle', payload)
     }
   },
   mutations: {
@@ -195,6 +199,10 @@ const store = new Vuex.Store({
       }, (err) => {
         if (err) {}
       })
+    },
+    showSingle (state, payload) {
+      state.singleUser = payload
+      console.log('showSingle : ', state.singleUser)
     }
   }
 })

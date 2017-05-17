@@ -22,12 +22,12 @@
             </tr>
           </thead>
           <tr v-for="(user, index) in allUser">
-            <td>{{index + 1}} <img :src="user.photoURL" width="50px" height="50px"></td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.companyName }}</td>
-            <td>{{ user.type }}</td>
-            <td v-if="adminState === false">{{ user.active }}</td>
-            <td v-if="adminState === true">{{ user.active }}</td>
+            <td><b>#{{index + 1}}</b> <img :src="user.photoURL" width="50px" height="50px"></td>
+            <td><b>{{ user.name }}</b></td>
+            <td><b>{{ user.companyName }}</b></td>
+            <td><b>{{ user.type }}</b></td>
+            <td v-if="adminState === false"><b>{{ user.active }}</b></td>
+            <td v-if="adminState === true"><b>{{ user.active }}</b></td>
             <td v-if="adminState === true">
                <input type="date" v-model="date" v-show="user.id === id">
                <button @click="select(user.id)" v-show="user.id !== id" class="button is-primary is-outlined"><b>เลือก</b></button>
@@ -35,7 +35,7 @@
                <!-- <button @click="id = user.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> -->
             </td>
             <td v-if="adminState === true">
-              <button class="button is-danger is-outlined"><b>ดู</b></button>
+              <button class="button is-danger is-outlined" @click="showSingleIn(user)"><b>ดู</b></button>
             </td>
 
           </tr>
@@ -70,7 +70,8 @@ export default {
   methods: {
     ...mapActions([
       'getUser',
-      'updateDate'
+      'updateDate',
+      'showSingle'
     ]),
     select (userId) {
       this.id = userId
@@ -85,6 +86,9 @@ export default {
       this.$store.dispatch('updateDate', payload)
       this.date = ''
       this.id = ''
+    },
+    showSingleIn (user) {
+      this.$store.dispatch('showSingle', user)
     }
   },
   mounted () {
