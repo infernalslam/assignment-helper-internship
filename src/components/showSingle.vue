@@ -7,31 +7,34 @@
 
 
           <div class="columns">
-            <div class="column is-8 is-offset-2">
+            <div class="column is-6 is-offset-3">
 
+                <div class="card" v-for="v in allUser">
 
+                  <header class="card-header">
+                      <p class="card-header-title"> วันนิเทศ {{v.active}}</p>
+                  </header>
 
-                <div class="card" v-for="v in data">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-left">
-                        <figure class="image is-48x48">
-                          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
-                        </figure>
-                      </div>
-                      <div class="media-content">
-                        <p class="title is-4">John Smith</p>
-                        <p class="subtitle is-6">@johnsmith</p>
-                      </div>
+                    <div class="card-image">
+                        <div v-html="v.location"></div>
                     </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image is-48x48">
+                            <img :src="v.photoURL" alt="Image">
+                          </figure>
+                        </div>
+                        <div class="media-content">
+                          <p class="title is-4" style="color: #000;"><b>{{ v.name }}</b></p>
+                          <p class="subtitle is-6" style="color: #000;"><b>{{ v.tel }} ที่ทำงาน {{ v.companyName }}</b></p>
+                          <span class="subtitle is-6" style="color: #000;"><b> Facebook : {{ v.facebook }}</b></span> <br>
+                          <b style="color: #000;"> ที่อยู่บริษัท {{ v.company }}</b>
+                        </div>
+                      </div>
 
+                    </div>
                   </div>
-                </div>
 
 
 
@@ -58,7 +61,6 @@ export default {
   },
   data () {
     return {
-      data: [1, 2, 3, 5, 6, 7, 8, 9, 10]
     }
   }
 }
