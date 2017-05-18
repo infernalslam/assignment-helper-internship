@@ -3,7 +3,8 @@
 
   <section class="section">
     <div class="container has-text-centered">
-      <h1 class="title"><b>กำหนดการนิเทศ</b></h1>
+      <h1 class="title" v-if="adminState === false"><b>กำหนดการนิเทศ</b></h1>
+      <h1 class="title" v-if="adminState === true"><b>กำหนดการนิเทศ   <a style="font-size: 12px;">ดูทั้งหมด</a>  </b></h1>
     </div>
     <br>
     <div class="columns">
