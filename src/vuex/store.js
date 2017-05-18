@@ -37,7 +37,8 @@ const store = new Vuex.Store({
     photoURL: state => { return state.photoURL },
     uid: state => { return state.uid },
     allUser: state => { return state.allUser },
-    adminState: state => { return state.adminState }
+    adminState: state => { return state.adminState },
+    singleUser: state => { return state.singleUser }
   },
   actions: {
     logingFacebook (context) {
@@ -202,6 +203,7 @@ const store = new Vuex.Store({
     },
     showSingle (state, payload) {
       state.singleUser = payload
+      // router.push({ path: '/showSingle' })
       console.log('showSingle : ', state.singleUser)
     }
   }

@@ -41,6 +41,46 @@
           </tr>
         </table>
 
+        <div class="modal" :class="{ 'is-active': isActive }">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title">ข้อมูลนักศึกษา</p>
+              <button class="delete" @click="isActive = false"></button>
+            </header>
+            <section class="modal-card-body">
+
+              <div class="card">
+                  <div class="card-image">
+                      <div v-html="singleUser.location"></div>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <img :src="singleUser.photoURL" alt="Image" v-if="isActive">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="title is-4"><b>{{ singleUser.name }}</b></p>
+                        <p class="subtitle is-6"><b>{{ singleUser.tel }} ที่ทำงาน {{ singleUser.companyName }}</b></p>
+                        <span class="subtitle is-6"><b> Facebook : {{ singleUser.facebook }}</b></span> <br>
+                        <b> ที่อยู่บริษัท {{ singleUser.company }}</b>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+
+            </section>
+            <footer class="modal-card-foot">
+              <a class="button is-success" @click="isActive = false">เรียบร้อย</a>
+            </footer>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -58,13 +98,15 @@ export default {
     return {
       date: [],
       value: '',
-      id: ''
+      id: '',
+      isActive: false
     }
   },
   computed: {
     ...mapGetters([
       'allUser',
-      'adminState'
+      'adminState',
+      'singleUser'
     ])
   },
   methods: {
@@ -88,6 +130,7 @@ export default {
       this.id = ''
     },
     showSingleIn (user) {
+      this.isActive = true
       this.$store.dispatch('showSingle', user)
     }
   },
@@ -97,5 +140,6 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
+
 </style>
