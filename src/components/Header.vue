@@ -39,7 +39,7 @@
 
           <div class="hero-body">
             <div class="container has-text-centered">
-                <img src="https://www.aaltra.eu/assets/img/yerpa-apps/yerpa_timeclock.svg" class="hero-logo" width="128px" height="128px">
+                <img src="../../static/logo.svg" class="hero-logo" width="128px" height="128px">
                 <h1 class="title"><b>อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษา</b></h1>
                 <h2 class="subtitle"><b>อ่านด้วยนะคะทุกๆคน!!! ถึงนักศึกษาที่ไปฝึกงานทุกคนทั้ง "สหกิจศึกษา" และ "ฝึกงานทั่วไป"</b></h2>
                 <h2 class="subtitle">(เฉพาะเซคซี เท่านั้น)</h2>
