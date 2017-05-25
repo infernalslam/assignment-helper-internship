@@ -24,8 +24,8 @@
                   <select v-model="profres">
                     <option selected disabled value="">อย่าลืมเลือกนะ</option>
                     <option>อ. โอ๊ต (อาจารย์นิติการ นาคเจือทอง)</option>
-                    <option>อ. ฝน (อาจารย์สุภาพร ลิ้มเจริญ)</option>
-                    <option>อ. อ้อ (อาจารย์ขณิตฐา นามี)</option>
+                    <option>อ. ฝน (อาจารย์สุพาพรณ์ ซิ้มเจริญ)</option>
+                    <option>อ. อ้อ (อาจารย์ขนิษฐา นามี)</option>
                   </select>
                 </span>
 
