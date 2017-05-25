@@ -31,29 +31,29 @@
 
                 <br>
                 <hr>
+                <form v-on:submit.prevent="add()">
+                  <b>ชื่อ นามสกุล</b>
+                  <p class="control"><input class="input" type="text" placeholder="ชื่อนามสกุล" v-model="name" reqiured></p>
+                  <br>
 
-                <b>ชื่อ นามสกุล</b>
-                <p class="control"><input class="input" type="text" placeholder="ชื่อนามสกุล" v-model="name"></p>
-                <br>
+                  <b>เบอร์โทร</b>
+                  <p class="control"><input class="input" type="text" placeholder="เบอร์โทร" v-model="tel" required></p>
+                  <br>
 
-                <b>เบอร์โทร</b>
-                <p class="control"><input class="input" type="text" placeholder="เบอร์โทร" v-model="tel"></p>
-                <br>
+                  <b>ชื่อบริษัทที่ไปฝึก</b>
+                  <p class="control"><input class="input" type="text" placeholder="ชื่อบริษัท" v-model="companyName" required></p>
+                  <br>
 
-                <b>ชื่อบริษัทที่ไปฝึก</b>
-                <p class="control"><input class="input" type="text" placeholder="ชื่อบริษัท" v-model="companyName"></p>
-                <br>
+                  <b> ที่อยู่ ตึก อาคาร ชั้น ....</b>
+                  <p class="control"><textarea class="textarea" placeholder="รายละเอียด" v-model="company" required /></p>
+                  <br>
 
-                <b> ที่อยู่ ตึก อาคาร ชั้น ....</b>
-                <p class="control"><textarea class="textarea" placeholder="รายละเอียด" v-model="company"></textarea></p>
-                <br>
-
-                <b> link ใน google map ที่คุณปักหมุดเอาไว้ </b>
-                <a href="https://www.google.co.th/maps/" target="_blank" style="color:#ff3860;"> <u><b>link google map</b></u></a>
-                <p class="control"><input class="input" type="text" placeholder="ink ใน google map" v-model="googleMap"></p></p>
-                <br>
-
-                <button class="button is-success" @click="add()"><b>ยืนยันจ๊ะ</b></button>
+                  <b> link ใน google map ที่คุณปักหมุดเอาไว้ </b>
+                  <a href="https://www.google.co.th/maps/" target="_blank" style="color:#ff3860;"> <u><b>link google map</b></u></a>
+                  <p class="control"><input class="input" type="text" placeholder="ink ใน google map" v-model="googleMap" required></p></p>
+                  <br>
+                  <button type="submit" class="button is-success"><b>ยืนยันจ๊ะ</b></button>
+                </form>
               </div>
             </div>
           </div>
