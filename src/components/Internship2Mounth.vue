@@ -122,7 +122,7 @@ is-bg {
 .card {
   clear: both;
   /*height: 200px;*/
-  height: 80vh;
+  height: 100vh;
   width: 70vh;
 
   display: block;
